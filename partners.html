@@ -71,6 +71,7 @@
       
               <div class="block md:hidden">
                 <button
+                  id="mobile-menu-button"
                   class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
                 >
                   <svg
@@ -90,7 +91,26 @@
         </div>
       </header>
   
-
+      <!-- Mobile Navigation Menu -->
+      <div id="mobile-menu" class="hidden fixed top-16 left-0 right-0 bg-white shadow-lg z-40">
+        <nav class="px-4 py-3">
+          <ul class="space-y-4 text-lg font-bold">
+            <li>
+              <a class="block text-gray-500 transition hover:text-gray-500/75" href="index.html"> الرئيسيه </a>
+            </li>
+            <li>
+              <a class="block text-gray-500 transition hover:text-gray-500/75" href="menu.html"> المنيو </a>
+            </li>
+            <li>
+              <a class="block text-gray-500 transition hover:text-gray-500/75" href="partners.html"> شركاءنا </a>
+            </li>
+            <li>
+              <a class="block text-gray-500 transition hover:text-gray-500/75" href="who-we.html"> من نحن ؟ </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+  
       <div class="grid grid-cols-2 md:grid-cols-3 gap-8 my-container pt-20  ">
         <div class="">
             <img class="h-auto max-w-full rounded-lg" src="img/brands/1.png" alt="">
@@ -282,5 +302,25 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
+  <!-- //mobile menu -->
+  <script>
+    // Get the mobile menu button and menu elements
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    // Add click event listener to the button
+    mobileMenuButton.addEventListener('click', () => {
+      // Toggle the 'hidden' class on the mobile menu
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close the menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+  </script>
 </body>
 </html>
